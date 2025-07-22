@@ -95,7 +95,16 @@ When someone else clones this project, they will:
 - Tested on Kali Linux, should work on Linux/macOS/WSL
 
 **DISCLAIMER**
-Use at your own risk and DO NOT use to store real-world critical credentials unless hardened and audited.
+This project, SecurePass, is provided for educational and personal use only.
+
+It is intended to demonstrate concepts related to password management, encryption, authentication, and secure software development. While SecurePass incorporates industry-standard libraries and good security practices, it is not intended for use in high-security or production environments without further auditing, hardening, and testing by security professionals.
+
+The authors of this project do not assume any responsibility for data loss, unauthorized access, or misuse resulting from the use of this software.
+
+By using this project, you acknowledge that:
+- You understand it is experimental and for learning purposes
+- You are solely responsible for protecting any sensitive data stored with this tool
+- You will not hold the authors liable for any issues or damages resulting from its use
 
 **LICENSE**
 MIT License – open for personal, academic, and non-commercial use.
