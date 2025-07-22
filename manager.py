@@ -153,7 +153,7 @@ def update_entry(vault_file, key, vault_data):
                 print("New password is not strong enough.")
                 password = getpass("Please enter a stronger password: ")
         else:
-            print("\n🔍 Evaluating current password strength...")
+            print("\nEvaluating current password strength...")
             if not evaluate_strength(current_pw):
                 print("Your old password is weak. You must update it.")
                 while True:
@@ -222,7 +222,7 @@ def main():
             print("Exiting and locking vault. Goodbye.")
             os._exit(0)
         else:
-            print("❌ Invalid choice.")
+            print("Invalid choice.")
 
         reset_timer()
 
