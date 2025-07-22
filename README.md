@@ -8,7 +8,7 @@ SecurePass is a secure terminal-based password manager written in Python. It all
 - Time-based 2FA login using TOTP (`totp.secret`)
 - QR code generation for easy 2FA setup with Google Authenticator or Authy
 - Password strength scoring and suggestions using `zxcvbn`
-- Optional common password check using Kali’s `rockyou.txt` wordlist
+- Common password check using Kali’s `rockyou.txt` wordlist
 - Auto-locking after 5 minutes of inactivity (resets with each action)
 - Add, view, update, delete, and search for stored entries
 - Return to menu anytime from within the app
