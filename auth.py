@@ -1,20 +1,20 @@
 import bcrypt
 import pyotp
 
-# Step 1: Create and store master password
+#Step 1: Create and store master password
 def create_master_password():
     password = input("Set a master password: ").encode()
 
-    # Hash the password using bcrypt
+    #Hash the password using bcrypt
     hashed = bcrypt.hashpw(password, bcrypt.gensalt())
 
-    # Save the hash to a file
+    #Save the hash to a file
     with open("master.hash", "wb") as f:
         f.write(hashed)
 
     print("Master password created and securely stored.")
 
-# Step 2: Verify master password during login
+#Step 2: Verify master password during login
 def verify_master_password():
     password = input("Enter your master password: ").encode()
 
@@ -32,7 +32,7 @@ def verify_master_password():
         print("Incorrect master password.")
         return False
 
-# Step 3: Verify 2FA code
+#Step 3: Verify 2FA code
 def verify_2fa():
     try:
         with open("totp.secret", "r") as f:
@@ -51,7 +51,7 @@ def verify_2fa():
         print("Invalid 2FA code.")
         return False
 
-# Run interactively
+#Run interactively
 if __name__ == "__main__":
     print("1. Create Master Password")
     print("2. Verify Master Password + 2FA")
