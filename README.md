@@ -15,7 +15,7 @@ SecurePass is a secure terminal-based password manager written in Python. It all
 
 **INSTALLATION INSTRUCTIONS**
 1. Clone this repository:
-    `git clone https://github.com/zabloudilaATWIT/securepass.git`
+   `git clone https://github.com/zabloudilaATWIT/securepass.git`
    `cd securepass`
 
 4. Create and activate a virtual environment:
@@ -65,18 +65,20 @@ Main menu options:
 
 **SECURITY FILES – DO NOT SHARE**
 These contain personal data and must be kept private:
-    <br>vault.enc       → your encrypted credentials
-    <br>master.hash     → your hashed master password
-    <br>totp.secret     → your 2FA secret
-    <br>totp_qr.png     → QR image that reveals the secret key
+- vault.enc       → your encrypted credentials
+- master.hash     → your hashed master password
+- totp.secret     → your 2FA secret
+- totp_qr.png     → QR image that reveals the secret key
 
 These files are excluded using '.gitignore' to prevent accidental upload.
 
 **RESETTING YOUR SETUP**
 To wipe everything and start over:
-    `rm vault.enc master.hash totp.secret totp_qr.png`
-    `python auth.py`
-    `python 2fa_setup.py`
+- `rm vault.enc master.hash` 
+- `totp.secret` 
+- `totp_qr.png`
+- `python auth.py`
+- `python 2fa_setup.py`
 
 
 **FOR OTHER USERS**
