@@ -1,13 +1,100 @@
-git clone https://github.com/zabloudilaATWIT/securepass.git
-cd securepass
+SecurePass: Encrypted Password Manager with 2FA and Strength Evaluation
 
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+SecurePass is a secure terminal-based password manager written in Python. It allows you to store your credentials safely using strong encryption, 2-factor authentication (2FA), password strength evaluation, and automatic vault locking on inactivity.
 
-# Set up your own master password and 2FA
-python auth.py
-python 2fa_setup.py
+FEATURES
+- Encrypted password vault (`vault.enc`) using AES encryption
+- Master password stored with bcrypt hashing (`master.hash`)
+- Time-based 2FA login using TOTP (`totp.secret`)
+- QR code generation for easy 2FA setup with Google Authenticator or Authy
+- Password strength scoring and suggestions using `zxcvbn`
+- Optional common password check using Kali’s `rockyou.txt` wordlist
+- Auto-locking after 5 minutes of inactivity (resets with each action)
+- Add, view, update, delete, and search for stored entries
+- Return to menu anytime from within the app
 
-# Start the app
-python manager.py
+INSTALLATION INSTRUCTIONS
+1. Clone this repository:
+    git clone https://github.com/zabloudilaATWIT/securepass.git
+    cd securepass
+
+2. Create and activate a virtual environment:
+    python3 -m venv venv
+    source venv/bin/activate
+
+3. Install required packages:
+    pip install -r requirements.txt
+
+FIRST-TIME SETUP (Run Only Once)
+Step 1: Create a master password:
+
+    python auth.py
+
+- You'll be prompted to enter a secure master password.
+- The password is hashed with bcrypt and stored in 'master.hash'.
+
+Step 2: Set up 2FA:
+    python 2fa_setup.py
+
+This script will:
+- Generate a 2FA secret and store it in 'totp.secret'
+- Create a QR code image ('totp_qr.png')
+
+How to use the QR code:
+- Open your authenticator app (Google Authenticator or Authy)
+- Scan the QR code in 'totp_qr.png'
+- Your app will now generate a 6-digit code every 30 seconds
+
+USING SECUREPASS
+To run the manager:
+    python manager.py
+
+You'll be asked to:
+1. Enter your master password
+2. Enter your 6-digit code from your Authenticator app
+
+Main menu options:
+    1. Add New Entry
+    2. View Vault
+    3. Delete Entry
+    4. Update Entry
+    5. Search Vault
+    0. Exit
+
+- You must use strong passwords (score ≥ 75).
+- You can update weak passwords directly through the interface.
+
+SECURITY FILES – DO NOT SHARE
+These contain personal data and must be kept private:
+    vault.enc       → your encrypted credentials
+    master.hash     → your hashed master password
+    totp.secret     → your 2FA secret
+    totp_qr.png     → QR image that reveals the secret key
+
+These files are excluded using '.gitignore' to prevent accidental upload.
+
+RESETTING YOUR SETUP
+To wipe everything and start over:
+    rm vault.enc master.hash totp.secret totp_qr.png
+    python auth.py
+    python 2fa_setup.py
+
+
+FOR OTHER USERS
+When someone else clones this project, they will:
+- Set their own master password
+- Set up their own 2FA
+- Store their own credentials
+
+None of your passwords or secrets are included.
+
+SYSTEM REQUIREMENTS
+- Python 3.7 or higher
+- Git (optional for cloning)
+- Tested on Kali Linux, should work on Linux/macOS/WSL
+
+DISCLAIMER
+Use at your own risk and DO NOT use to store real-world critical credentials unless hardened and audited.
+
+LICENSE
+MIT License – open for personal, academic, and non-commercial use.
