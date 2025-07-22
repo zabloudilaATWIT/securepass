@@ -11,7 +11,7 @@ import pyotp
 
 #Global Variables
 inactivity_timer = None
-INACTIVITY_TIMEOUT = 300  # 5 minutes
+INACTIVITY_TIMEOUT = 300  #5 minutes
 
 
 #Timer and Security
