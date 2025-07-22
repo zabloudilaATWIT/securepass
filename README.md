@@ -79,6 +79,30 @@ To wipe everything and start over:
 - `python 2fa.py`
 
 
+
+**Reopening SecurePass After Exiting the Terminal**
+If you close the terminal or restart your computer, follow these steps to reopen SecurePass:
+1. Open a new terminal window
+2. Navigate to the project directory
+    `cd ~/securepass`
+3. Activate the virtual environment
+    `source venv/bin/activate`
+4. Run the password manager
+    `python manager.py`
+Or:
+    `python3 manager.py`
+5. Log in
+You'll be prompted to:
+- Enter your master password
+- Enter the 6-digit code from your authenticator app (2FA)
+  
+Make sure these files still exist:
+    master.hash
+    totp.secret 
+    vault.enc      
+    venv           
+If these are in place, you can reopen SecurePass anytime!
+
 **FOR OTHER USERS**
 When someone else clones this project, they will:
 - Set their own master password
