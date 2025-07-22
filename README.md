@@ -65,10 +65,10 @@ Main menu options:
 
 **SECURITY FILES – DO NOT SHARE**
 These contain personal data and must be kept private:
-    /nvault.enc       → your encrypted credentials
-    /nmaster.hash     → your hashed master password
-    /ntotp.secret     → your 2FA secret
-    /ntotp_qr.png     → QR image that reveals the secret key
+    <br>vault.enc       → your encrypted credentials
+    <br>master.hash     → your hashed master password
+    <br>totp.secret     → your 2FA secret
+    <br>totp_qr.png     → QR image that reveals the secret key
 
 These files are excluded using '.gitignore' to prevent accidental upload.
 
