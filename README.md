@@ -1,8 +1,8 @@
-SecurePass: Encrypted Password Manager with 2FA and Strength Evaluation
+#SecurePass: Encrypted Password Manager with 2FA and Strength Evaluation
 
 SecurePass is a secure terminal-based password manager written in Python. It allows you to store your credentials safely using strong encryption, 2-factor authentication (2FA), password strength evaluation, and automatic vault locking on inactivity.
 
-FEATURES
+#FEATURES
 - Encrypted password vault (`vault.enc`) using AES encryption
 - Master password stored with bcrypt hashing (`master.hash`)
 - Time-based 2FA login using TOTP (`totp.secret`)
@@ -13,28 +13,27 @@ FEATURES
 - Add, view, update, delete, and search for stored entries
 - Return to menu anytime from within the app
 
-INSTALLATION INSTRUCTIONS
+#INSTALLATION INSTRUCTIONS
 1. Clone this repository:
-    git clone https://github.com/zabloudilaATWIT/securepass.git
-    cd securepass
+    `git clone https://github.com/zabloudilaATWIT/securepass.git`
+   `cd securepass`
 
-2. Create and activate a virtual environment:
-    python3 -m venv venv
-    source venv/bin/activate
+4. Create and activate a virtual environment:
+    `python3 -m venv venv`
+    `source venv/bin/activate`
 
-3. Install required packages:
-    pip install -r requirements.txt
+5. Install required packages:
+    `pip install -r requirements.txt`
 
-FIRST-TIME SETUP (Run Only Once)
+#FIRST-TIME SETUP (Run Only Once)
 Step 1: Create a master password:
-
-    python auth.py
+    `python auth.py`
 
 - You'll be prompted to enter a secure master password.
 - The password is hashed with bcrypt and stored in 'master.hash'.
 
 Step 2: Set up 2FA:
-    python 2fa_setup.py
+    `python 2fa_setup.py`
 
 This script will:
 - Generate a 2FA secret and store it in 'totp.secret'
@@ -45,9 +44,9 @@ How to use the QR code:
 - Scan the QR code in 'totp_qr.png'
 - Your app will now generate a 6-digit code every 30 seconds
 
-USING SECUREPASS
+#USING SECUREPASS
 To run the manager:
-    python manager.py
+    `python manager.py`
 
 You'll be asked to:
 1. Enter your master password
@@ -75,9 +74,9 @@ These files are excluded using '.gitignore' to prevent accidental upload.
 
 RESETTING YOUR SETUP
 To wipe everything and start over:
-    rm vault.enc master.hash totp.secret totp_qr.png
-    python auth.py
-    python 2fa_setup.py
+    `rm vault.enc master.hash totp.secret totp_qr.png`
+    `python auth.py`
+    `python 2fa_setup.py`
 
 
 FOR OTHER USERS
