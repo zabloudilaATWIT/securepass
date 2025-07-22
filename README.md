@@ -33,7 +33,7 @@ Step 1: Create a master password:
 - The password is hashed with bcrypt and stored in 'master.hash'.
 
 Step 2: Set up 2FA:
-    `python 2fa_setup.py`
+    `python 2fa.py`
 
 This script will:
 - Generate a 2FA secret and store it in 'totp.secret'
