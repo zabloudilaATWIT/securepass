@@ -9,12 +9,12 @@ from getpass import getpass
 from zxcvbn import zxcvbn
 import pyotp
 
-# === Global Variables ===
+#Global Variables
 inactivity_timer = None
 INACTIVITY_TIMEOUT = 300  # 5 minutes
 
 
-# === Timer and Security ===
+#Timer and Security
 
 def auto_logout():
     print("\nInactivity timeout reached. Vault locked.")
@@ -77,7 +77,7 @@ def evaluate_strength(password):
     return score >= 75
 
 
-# === Vault Management ===
+#Vault Management
 
 def load_vault(file, key):
     if not os.path.exists(file):
@@ -99,7 +99,7 @@ def save_vault(file, data, key):
         vault.write(encrypted)
 
 
-# === Entry Actions ===
+#Entry Actions
 
 def add_entry(vault_file, key, vault_data):
     account = input("Account name: ")
@@ -183,7 +183,7 @@ def search_entries(vault_data):
         print("No matching accounts found.")
 
 
-# === Main Program ===
+#Main
 
 def main():
     vault_file = "vault.enc"
