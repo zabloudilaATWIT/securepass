@@ -1,0 +1,24 @@
+# === Python cache ===
+__pycache__/
+*.py[cod]
+*.pyo
+
+# === Environments ===
+venv/
+.env/
+
+# === Sensitive SecurePass Files ===
+vault.enc
+master.hash
+totp.secret
+totp_qr.png
+
+# === IDE and OS Files ===
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# === Logs or temp files (if added later) ===
+*.log
+*.tmp
