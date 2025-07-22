@@ -134,7 +134,7 @@ def delete_entry(vault_file, key, vault_data):
     if 0 <= index < len(vault_data):
         removed = vault_data.pop(index)
         save_vault(vault_file, vault_data, key)
-        print(f"🗑️ Deleted {removed['account']}")
+        print(f"Deleted {removed['account']}")
     else:
         print("Invalid entry number.")
 
