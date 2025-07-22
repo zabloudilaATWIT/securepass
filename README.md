@@ -1,8 +1,8 @@
-#SecurePass: Encrypted Password Manager with 2FA and Strength Evaluation
+**SecurePass: Encrypted Password Manager with 2FA and Strength Evaluation**
 
 SecurePass is a secure terminal-based password manager written in Python. It allows you to store your credentials safely using strong encryption, 2-factor authentication (2FA), password strength evaluation, and automatic vault locking on inactivity.
 
-#FEATURES
+**FEATURES**
 - Encrypted password vault (`vault.enc`) using AES encryption
 - Master password stored with bcrypt hashing (`master.hash`)
 - Time-based 2FA login using TOTP (`totp.secret`)
@@ -13,7 +13,7 @@ SecurePass is a secure terminal-based password manager written in Python. It all
 - Add, view, update, delete, and search for stored entries
 - Return to menu anytime from within the app
 
-#INSTALLATION INSTRUCTIONS
+**INSTALLATION INSTRUCTIONS**
 1. Clone this repository:
     `git clone https://github.com/zabloudilaATWIT/securepass.git`
    `cd securepass`
@@ -25,7 +25,7 @@ SecurePass is a secure terminal-based password manager written in Python. It all
 5. Install required packages:
     `pip install -r requirements.txt`
 
-#FIRST-TIME SETUP (Run Only Once)
+**FIRST-TIME SETUP (Run Only Once)**
 Step 1: Create a master password:
     `python auth.py`
 
@@ -44,7 +44,7 @@ How to use the QR code:
 - Scan the QR code in 'totp_qr.png'
 - Your app will now generate a 6-digit code every 30 seconds
 
-#USING SECUREPASS
+**USING SECUREPASS**
 To run the manager:
     `python manager.py`
 
@@ -63,7 +63,7 @@ Main menu options:
 - You must use strong passwords (score ≥ 75).
 - You can update weak passwords directly through the interface.
 
-SECURITY FILES – DO NOT SHARE
+**SECURITY FILES – DO NOT SHARE**
 These contain personal data and must be kept private:
     vault.enc       → your encrypted credentials
     master.hash     → your hashed master password
@@ -72,28 +72,28 @@ These contain personal data and must be kept private:
 
 These files are excluded using '.gitignore' to prevent accidental upload.
 
-RESETTING YOUR SETUP
+**RESETTING YOUR SETUP**
 To wipe everything and start over:
     `rm vault.enc master.hash totp.secret totp_qr.png`
     `python auth.py`
     `python 2fa_setup.py`
 
 
-FOR OTHER USERS
+**FOR OTHER USERS**
 When someone else clones this project, they will:
 - Set their own master password
 - Set up their own 2FA
 - Store their own credentials
 
-None of your passwords or secrets are included.
+*None of your passwords or secrets are included.*
 
-SYSTEM REQUIREMENTS
+**SYSTEM REQUIREMENTS**
 - Python 3.7 or higher
 - Git (optional for cloning)
 - Tested on Kali Linux, should work on Linux/macOS/WSL
 
-DISCLAIMER
+**DISCLAIMER**
 Use at your own risk and DO NOT use to store real-world critical credentials unless hardened and audited.
 
-LICENSE
+**LICENSE**
 MIT License – open for personal, academic, and non-commercial use.
