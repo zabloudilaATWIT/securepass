@@ -76,7 +76,7 @@ These files are excluded using '.gitignore' to prevent accidental upload.
 To wipe everything and start over:
 - `rm vault.enc master.hash totp.secret totp_qr.png`
 - `python auth.py`
-- `python 2fa_setup.py`
+- `python 2fa.py`
 
 
 **FOR OTHER USERS**
