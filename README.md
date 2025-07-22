@@ -88,9 +88,7 @@ If you close the terminal or restart your computer, follow these steps to reopen
 3. Activate the virtual environment
     `source venv/bin/activate`
 4. Run the password manager
-    `python manager.py`
-Or:
-    `python3 manager.py`
+    `python manager.py` or `python3 manager.py`
 5. Log in
 You'll be prompted to:
 - Enter your master password
