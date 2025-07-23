@@ -119,11 +119,13 @@ When someone else clones this project, they will:
 *None of your passwords or secrets are included.*
 
 **SYSTEM REQUIREMENTS**
+
 - Python 3.7 or higher
 - Git (optional for cloning)
 - Tested on Kali Linux, should work on Linux/macOS/WSL
 
 **DISCLAIMER**
+
 This project, SecurePass, is provided for educational and personal use only.
 
 It is intended to demonstrate concepts related to password management, encryption, authentication, and secure software development. While SecurePass incorporates industry-standard libraries and good security practices, it is not intended for use in high-security or production environments without further auditing, hardening, and testing by security professionals.
@@ -136,4 +138,5 @@ By using this project, you acknowledge that:
 - You will not hold the authors liable for any issues or damages resulting from its use
 
 **LICENSE**
+
 MIT License – open for personal, academic, and non-commercial use.
