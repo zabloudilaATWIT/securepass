@@ -3,6 +3,7 @@
 SecurePass is a secure terminal-based password manager written in Python. It allows you to store your credentials safely using strong encryption, 2-factor authentication (2FA), password strength evaluation, and automatic vault locking on inactivity.
 
 **FEATURES**
+
 - Encrypted password vault (`vault.enc`) using AES encryption
 - Master password stored with bcrypt hashing (`master.hash`)
 - Time-based 2FA login using TOTP (`totp.secret`)
@@ -14,6 +15,7 @@ SecurePass is a secure terminal-based password manager written in Python. It all
 - Return to menu anytime from within the app
 
 **INSTALLATION INSTRUCTIONS**
+
 1. Clone this repository:
    `git clone https://github.com/zabloudilaATWIT/securepass.git`
    `cd securepass`
@@ -26,6 +28,7 @@ SecurePass is a secure terminal-based password manager written in Python. It all
     `pip install -r requirements.txt`
 
 **FIRST-TIME SETUP (Run Only Once)**
+
 Step 1: Create a master password:
     `python auth.py`
 
@@ -45,6 +48,7 @@ How to use the QR code:
 - Your app will now generate a 6-digit code every 30 seconds
 
 **USING SECUREPASS**
+
 To run the manager:
     `python manager.py`
 
@@ -64,6 +68,7 @@ Main menu options:
 - You can update weak passwords directly through the interface.
 
 **SECURITY FILES – DO NOT SHARE**
+
 These contain personal data and must be kept private:
 - vault.enc       → your encrypted credentials
 - master.hash     → your hashed master password
@@ -73,6 +78,7 @@ These contain personal data and must be kept private:
 These files are excluded using '.gitignore' to prevent accidental upload.
 
 **RESETTING YOUR SETUP**
+
 To wipe everything and start over:
 - `rm vault.enc master.hash totp.secret totp_qr.png`
 - `python auth.py`
@@ -81,6 +87,7 @@ To wipe everything and start over:
 
 
 **Reopening SecurePass After Exiting the Terminal**
+
 If you close the terminal or restart your computer, follow these steps to reopen SecurePass:
 1. Open a new terminal window
 2. Navigate to the project directory
@@ -103,6 +110,7 @@ Make sure these files still exist:
 If these are in place, you can reopen SecurePass anytime!
 
 **FOR OTHER USERS**
+
 When someone else clones this project, they will:
 - Set their own master password
 - Set up their own 2FA
