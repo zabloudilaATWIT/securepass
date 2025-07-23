@@ -90,6 +90,7 @@ If you close the terminal or restart your computer, follow these steps to reopen
 4. Run the password manager
     `python manager.py` or `python3 manager.py`
 5. Log in
+
 You'll be prompted to:
 - Enter your master password
 - Enter the 6-digit code from your authenticator app (2FA)
