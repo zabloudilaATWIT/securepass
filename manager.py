@@ -17,7 +17,7 @@ INACTIVITY_TIMEOUT = 300  #5 minutes
 #Timer and Security
 
 def auto_logout():
-    print("\nInactivity timeout reached. Vault locked.")
+    print("\n🔒Inactivity timeout reached. Vault locked.")
     os._exit(0)
 
 def reset_timer():
@@ -33,18 +33,18 @@ def get_encryption_key(master_password):
 
 def verify_master():
     if not os.path.exists("master.hash"):
-        print("Master password not set up.")
+        print("⚠️Master password not set up.")
         return None
 
-    master = getpass("Enter master password: ").encode()
+    master = getpass("🗝️Enter master password: ").encode()
     with open("master.hash", "rb") as f:
         stored = f.read()
 
     if bcrypt.checkpw(master, stored):
-        print("Master password verified.")
+        print("✅Master password verified.")
         return master.decode()
     else:
-        print("Incorrect master password.")
+        print("❌Incorrect master password.")
         return None
 
 def verify_2fa():
@@ -52,27 +52,27 @@ def verify_2fa():
         with open("totp.secret", "r") as f:
             secret = f.read().strip()
     except FileNotFoundError:
-        print("2FA not set up.")
+        print("❗2FA not set up.")
         return False
 
     totp = pyotp.TOTP(secret)
-    code = input("Enter 6-digit code from your Authenticator app: ")
+    code = input("🛠️Enter 6-digit code from your Authenticator app: ")
     if totp.verify(code):
-        print("2FA passed.")
+        print("✅2FA passed.")
         return True
     else:
-        print("Invalid 2FA code.")
+        print("❌Invalid 2FA code.")
         return False
 
 def evaluate_strength(password):
     result = zxcvbn(password)
     score = result['score'] * 25 + 1
-    print(f"\nPassword Score: {min(score, 100)} / 100")
+    print(f"\n🎯Password Score: {min(score, 100)} / 100")
     if result['feedback']['warning']:
         print(result['feedback']['warning'])
     for tip in result['feedback']['suggestions']:
         print(tip)
-    print("Crack Time:", result['crack_times_display']['offline_slow_hashing_1e4_per_second'])
+    print("⏳Crack Time:", result['crack_times_display']['offline_slow_hashing_1e4_per_second'])
 
     return score >= 75
 
@@ -89,7 +89,7 @@ def load_vault(file, key):
             decrypted = f.decrypt(vault.read())
             return json.loads(decrypted.decode())
     except Exception as e:
-        print("Could not decrypt vault:", e)
+        print("🚫Could not decrypt vault:", e)
         return []
 
 def save_vault(file, data, key):
@@ -102,7 +102,7 @@ def save_vault(file, data, key):
 #Entry Actions
 
 def add_entry(vault_file, key, vault_data):
-    account = input("Account name: ")
+    account = input("📃Account name: ")
     username = input("Username: ")
 
     while True:
@@ -118,46 +118,46 @@ def add_entry(vault_file, key, vault_data):
     })
 
     save_vault(vault_file, vault_data, key)
-    print("Entry added.")
+    print("📃Entry added.")
 
 def view_entries(vault_data):
     if not vault_data:
-        print("Vault is empty.")
+        print("💩Vault is empty.")
         return
-    print("\nStored Accounts:")
+    print("\n🗂️Stored Accounts:")
     for i, entry in enumerate(vault_data, start=1):
         print(f"{i}. {entry['account']} → {entry['username']} | {entry['password']}")
 
 def delete_entry(vault_file, key, vault_data):
     view_entries(vault_data)
-    index = int(input("Enter entry number to delete: ")) - 1
+    index = int(input("🗑️Enter entry number to delete: ")) - 1
     if 0 <= index < len(vault_data):
         removed = vault_data.pop(index)
         save_vault(vault_file, vault_data, key)
-        print(f"Deleted {removed['account']}")
+        print(f"🗑️Deleted {removed['account']}")
     else:
-        print("Invalid entry number.")
+        print("🚫Invalid entry number.")
 
 def update_entry(vault_file, key, vault_data):
     view_entries(vault_data)
-    index = int(input("Enter entry number to update: ")) - 1
+    index = int(input("🔔Enter entry number to update: ")) - 1
     if 0 <= index < len(vault_data):
-        print("Leave blank to keep current values.")
+        print("⟳Leave blank to keep current values.")
         account = input(f"Account ({vault_data[index]['account']}): ") or vault_data[index]['account']
         username = input(f"Username ({vault_data[index]['username']}): ") or vault_data[index]['username']
         current_pw = vault_data[index]['password']
 
-        password = getpass("New password (leave blank to keep current): ")
+        password = getpass("⟳New password (leave blank to keep current): ")
         if password:
             while not evaluate_strength(password):
-                print("New password is not strong enough.")
-                password = getpass("Please enter a stronger password: ")
+                print("⚠️New password is not strong enough.")
+                password = getpass("💪Please enter a stronger password: ")
         else:
-            print("\nEvaluating current password strength...")
+            print("\n🧐Evaluating current password strength...")
             if not evaluate_strength(current_pw):
-                print("Your old password is weak. You must update it.")
+                print("😵Your old password is weak. You must update it.")
                 while True:
-                    password = getpass("Enter a new stronger password: ")
+                    password = getpass("💪Enter a new stronger password: ")
                     if evaluate_strength(password):
                         break
             else:
@@ -167,20 +167,20 @@ def update_entry(vault_file, key, vault_data):
         save_vault(vault_file, vault_data, key)
         print(f"Updated {account}")
     else:
-        print("Invalid entry number.")
+        print("🚫Invalid entry number.")
 
 def search_entries(vault_data):
-    query = input("Enter account name to search: ").lower()
+    query = input("🔎Enter account name to search: ").lower()
     results = [entry for entry in vault_data if query in entry['account'].lower()]
     
     if results:
-        print("\n🔎 Matching Entries:")
+        print("\n🔎Matching Entries:")
         for entry in results:
             print(f"{entry['account']}")
             print(f"   Username: {entry['username']}")
             print(f"   Password: {entry['password']}")
     else:
-        print("No matching accounts found.")
+        print("❌No matching accounts found.")
 
 
 #Main
@@ -200,13 +200,13 @@ def main():
 
     while True:
         print("\nSecurePass Password Manager")
-        print("1. Add New Entry")
-        print("2. View Vault")
-        print("3. Delete Entry")
-        print("4. Update Entry")
-        print("5. Search Vault")
-        print("0. Exit")
-        choice = input("Choose an option: ")
+        print("1.➕Add New Entry")
+        print("2.👀View Vault")
+        print("3.🗑️Delete Entry")
+        print("4.🔔Update Entry")
+        print("5.🔎Search Vault")
+        print("0.🔚Exit")
+        choice = input("👉Choose an option: ")
 
         if choice == "1":
             add_entry(vault_file, key, vault_data)
@@ -219,10 +219,10 @@ def main():
         elif choice == "5":
             search_entries(vault_data)
         elif choice == "0":
-            print("Exiting and locking vault. Goodbye.")
+            print("👋Exiting and locking vault. Goodbye.")
             os._exit(0)
         else:
-            print("Invalid choice.")
+            print("❌Invalid choice.")
 
         reset_timer()
 

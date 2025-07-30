@@ -9,15 +9,15 @@ def setup_2fa():
     with open("totp.secret", "w") as f:
         f.write(secret)
 
-    #Create provisioning URI for Google Authenticator
+    #Create provisioning URI for authenticator app
     uri = pyotp.totp.TOTP(secret).provisioning_uri(name="securepass_user", issuer_name="SecurePass")
 
     #Generate QR code and save as image
     qr = qrcode.make(uri)
     qr.save("totp_qr.png")
 
-    print("2FA setup complete.")
-    print("Scan the QR code in 'totp_qr.png' using Google Authenticator or Authy.")
+    print("✅2FA setup complete.")
+    print("📷Scan the QR code in 'totp_qr.png' using Google Authenticator or Authy.")
 
 if __name__ == "__main__":
     setup_2fa()
