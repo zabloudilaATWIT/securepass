@@ -122,7 +122,7 @@ When someone else clones this project, they will:
 
 - Python 3.7 or higher
 - Git (optional for cloning)
-- Tested and works on Kali Linux macOS, and Linux 
+- Tested and works in any terminal
 
 **DISCLAIMER**
 
