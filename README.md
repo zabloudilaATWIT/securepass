@@ -29,13 +29,24 @@ SecurePass is a secure terminal-based password manager written in Python. It all
 
 **FIRST-TIME SETUP (Run Only Once)**
 
-Step 1: Create a master password:
+Step 1: Sync Sytem Time to ensure no errors occur:
+    `sudo timedatectl set-ntp true` or `sudo ntpdate pool.ntp.org` (Linux)
+    
+    `sudo systemsetup -setusingnetworktime on` (macOS)
+
+    `w32tm /resync` or if error:
+    `net stop w32time`
+    `net start w32time`
+    `w32tm /resync` (Windows Command Prompt)
+
+
+Step 2: Create a master password:
     `python auth.py`
 
 - You'll be prompted to enter a secure master password.
 - The password is hashed with bcrypt and stored in 'master.hash'.
 
-Step 2: Set up 2FA:
+Step 3: Set up 2FA:
     `python 2fa.py`
 
 This script will:
